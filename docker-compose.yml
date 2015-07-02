@@ -1,0 +1,6 @@
+httpd:
+  image: viljaste/zabbix_server_mysql:2.2
+  hostname: zabbix_server_mysql
+  ports:
+    - "80:80"
+    - "443:443"
