@@ -2,9 +2,9 @@
 
 case "${1}" in
   build)
-    /bin/su - root -mc "apt-get update && /src/zabbix_server_mysql/build.sh && /src/zabbix_server_mysql/clean.sh"
+    /bin/su - root -mc "apt-get update && /src/zabbix_server/build.sh && /src/zabbix_server/clean.sh"
     ;;
   run)
-    /bin/su - root -mc "source /src/zabbix_server_mysql/variables.sh && /src/zabbix_server_mysql/run.sh"
+    /bin/su - root -mc "source /src/zabbix_server/variables.sh && /src/zabbix_server/run.sh"
     ;;
 esac

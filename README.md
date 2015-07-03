@@ -1,4 +1,4 @@
-# docker-zabbix-server-mysql
+# docker-zabbix-server
 
 ## License
 

@@ -8,9 +8,6 @@ ADD ./src /src
 
 RUN /src/entrypoint.sh build
 
-VOLUME ["/httpd"]
-
-EXPOSE 80
-EXPOSE 443
+EXPOSE 10051
 
 ENTRYPOINT ["/src/entrypoint.sh", "run"]
