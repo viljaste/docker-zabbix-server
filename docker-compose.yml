@@ -1,5 +1,5 @@
 zabbixserver:
-  image: viljaste/zabbix_server:2.2
+  image: viljaste/zabbix_server:latest
   hostname: zabbixserver
   ports:
     - "10051:10051"

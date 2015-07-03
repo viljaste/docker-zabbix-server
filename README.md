@@ -11,14 +11,13 @@ Using the `docker` command:
       -h "${CONTAINER}" \
       -p 10051:10051 \
       -d \
-      viljaste/zabbix_server:2.2
+      viljaste/zabbix_server:latest
 
 Using the `docker-compose` command
 
     TMP="$(mktemp -d)" \
       && GIT_SSL_NO_VERIFY=true git clone https://git.beyondcloud.io/viljaste/docker-zabbix-server.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 2.2 \
       && sudo docker-compose up
 
 ## Build the image
@@ -26,8 +25,7 @@ Using the `docker-compose` command
     TMP="$(mktemp -d)" \
       && GIT_SSL_NO_VERIFY=true git clone https://git.beyondcloud.io/viljaste/docker-zabbix-server.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 2.2 \
-      && sudo docker build -t viljaste/zabbix_server:2.2 . \
+      && sudo docker build -t viljaste/zabbix_server:latest . \
       && cd -
       
 ## License
