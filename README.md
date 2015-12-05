@@ -6,7 +6,7 @@ This project is part of the [Dockerized Drupal](https://dockerizedrupal.com/) in
 
 ## Run the container
 
-    CONTAINER="zabbixserver" && sudo docker run \
+    CONTAINER="zabbix-server" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -p 10051:10051 \
