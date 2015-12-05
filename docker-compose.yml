@@ -1,5 +1,5 @@
 zabbix-server:
-  image: dockerizedrupal/zabbix-server:0.1.7
+  image: dockerizedrupal/zabbix-server:0.1.8
   hostname: zabbix-server
   ports:
     - "10051:10051"
