@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
-while ! mysqladmin ping -h "<%= @mysql_host %>" -P "<%= @mysql_port %>" -u "<%= @mysql_username %>" -p"<%= @mysql_password %>" --silent; do
-  sleep 1
-done
+sleep 20
 
 OUTPUT=$(mysql -h "<%= @mysql_host %>" -P "<%= @mysql_port %>" -u "<%= @mysql_username %>" -p"<%= @mysql_password %>" -e "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = 'zabbix';")
 

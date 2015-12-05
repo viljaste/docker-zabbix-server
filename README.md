@@ -26,15 +26,15 @@ This project is part of the [Dockerized Drupal](https://dockerizedrupal.com/) in
       -p 10051:10051 \
       --link mysql:mysql \
       -d \
-      dockerizedrupal/zabbix-server:0.1.5
+      dockerizedrupal/zabbix-server:0.1.6
 
 ## Build the image
 
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/docker-zabbix-server.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 0.1.5 \
-      && sudo docker build -t dockerizedrupal/zabbix-server:0.1.5 . \
+      && git checkout 0.1.6 \
+      && sudo docker build -t dockerizedrupal/zabbix-server:0.1.6 . \
       && cd -
 
 ## Changing the container behaviour on runtime through environment variables
