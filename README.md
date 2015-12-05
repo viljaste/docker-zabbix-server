@@ -16,15 +16,15 @@ This project is part of the [Dockerized Drupal](https://dockerizedrupal.com/) in
       -e MYSQL_USERNAME="container" \
       -e MYSQL_PASSWORD="container" \
       -d \
-      dockerizedrupal/zabbix-server:0.1.2
+      dockerizedrupal/zabbix-server:0.1.3
 
 ## Build the image
 
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/docker-zabbix-server.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 0.1.2 \
-      && sudo docker build -t dockerizedrupal/zabbix-server:0.1.2 . \
+      && git checkout 0.1.3 \
+      && sudo docker build -t dockerizedrupal/zabbix-server:0.1.3 . \
       && cd -
 
 ## Changing the container behaviour on runtime through environment variables
