@@ -1,5 +1,24 @@
 zabbixserver:
-  image: viljaste/zabbix_server:latest
+  image: dockerizedrupal/zabbix-server:0.1.0
   hostname: zabbixserver
   ports:
     - "10051:10051"
+  links:
+    - mysql
+  environment:
+    - TIMEZONE=Etc/UTC
+    - MYSQL_HOST=
+    - MYSQL_PORT=3306
+    - MYSQL_USERNAME=container
+    - MYSQL_PASSWORD=container
+mysql:
+  image: dockerizedrupal/mysql:1.1.0
+  hostname: mysql
+  volumes_from:
+    - mysql-data
+mysql-data:
+  image: dockerizedrupal/mysql:1.1.0
+  hostname: mysql-data
+  entrypoint: ["/bin/echo", "Data-only container for MySQL."]
+  volumes:
+    - /mysql

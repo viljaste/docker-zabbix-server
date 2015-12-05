@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+while ! mysqladmin ping -h "<%= @mysql_host %>" -P "<%= @mysql_port %>" -u "<%= @mysql_username %>" -p"<%= @mysql_password %>" --silent; do
+  sleep 1
+done
+
+OUTPUT=$(mysql -h "<%= @mysql_host %>" -P "<%= @mysql_port %>" -u "<%= @mysql_username %>" -p"<%= @mysql_password %>" -e "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = 'zabbix';")
+
+if [ -n "${OUTPUT}" ]; then
+  exit
+fi
+
+cat /usr/share/zabbix-server-mysql/schema.sql | mysql -h "<%= @mysql_host %>" -P "<%= @mysql_port %>" -u "<%= @mysql_username %>" -p"<%= @mysql_password %>" zabbix
+
+cat /usr/share/zabbix-server-mysql/images.sql | mysql -h "<%= @mysql_host %>" -P "<%= @mysql_port %>" -u "<%= @mysql_username %>" -p"<%= @mysql_password %>" zabbix
+
+cat /usr/share/zabbix-server-mysql/data.sql | mysql -h "<%= @mysql_host %>" -P "<%= @mysql_port %>" -u "<%= @mysql_username %>" -p"<%= @mysql_password %>" zabbix

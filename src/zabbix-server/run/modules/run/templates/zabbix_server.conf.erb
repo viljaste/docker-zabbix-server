@@ -36,7 +36,7 @@
 # Default:
 # LogFile=
 
-LogFile=/var/log/zabbix/stdout.log
+LogFile=/var/log/zabbix.log
 
 ### Option: LogFileSize
 #       Maximum size of log file in MB.
@@ -80,7 +80,7 @@ PidFile=/var/run/zabbix/zabbix_server.pid
 # Default:
 # DBHost=localhost
 
-DBHost=<%= @mysqld_host %>
+DBHost=<%= @mysql_host %>
 
 ### Option: DBName
 #       Database name.
@@ -106,7 +106,7 @@ DBName=zabbix
 # Default:
 # DBUser=
 
-DBUser=root
+DBUser=<%= @mysql_username %>
 
 ### Option: DBPassword
 #       Database password. Ignored for SQLite.
@@ -116,7 +116,7 @@ DBUser=root
 # Default:
 # DBPassword=
 
-DBPassword=root
+DBPassword=<%= @mysql_password %>
 
 ### Option: DBSocket
 #       Path to MySQL socket.
@@ -133,7 +133,7 @@ DBSocket=/var/run/mysqld/mysqld.sock
 # Mandatory: no
 # Range: 1024-65535
 # Default (for MySQL):
-DBPort=<%= @mysqld_port %>
+DBPort=<%= @mysql_port %>
 
 ############ ADVANCED PARAMETERS ################
 

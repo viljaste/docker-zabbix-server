@@ -1,33 +1,36 @@
 # docker-zabbix-server
 
-A [Docker](https://docker.com/) image for [Zabbix](http://www.zabbix.com/) server.
+A Docker image for [Zabbix](http://www.zabbix.com/) server.
+
+This project is part of the [Dockerized Drupal](https://dockerizedrupal.com/) initiative.
 
 ## Run the container
-
-Using the `docker` command:
 
     CONTAINER="zabbixserver" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -p 10051:10051 \
+      -e TIMEZONE="Etc/UTC" \
+      -e MYSQL_HOST="" \
+      -e MYSQL_PORT="3306" \
+      -e MYSQL_USERNAME="container" \
+      -e MYSQL_PASSWORD="container" \
       -d \
-      viljaste/zabbix_server:latest
-
-Using the `docker-compose` command
-
-    TMP="$(mktemp -d)" \
-      && GIT_SSL_NO_VERIFY=true git clone https://git.beyondcloud.io/viljaste/docker-zabbix-server.git "${TMP}" \
-      && cd "${TMP}" \
-      && sudo docker-compose up
+      dockerizedrupal/zabbix-server:0.1.0
 
 ## Build the image
 
     TMP="$(mktemp -d)" \
-      && GIT_SSL_NO_VERIFY=true git clone https://git.beyondcloud.io/viljaste/docker-zabbix-server.git "${TMP}" \
+      && git clone https://github.com/dockerizedrupal/docker-zabbix-server.git "${TMP}" \
       && cd "${TMP}" \
-      && sudo docker build -t viljaste/zabbix_server:latest . \
+      && git checkout 0.1.0 \
+      && sudo docker build -t dockerizedrupal/zabbix-server:0.1.0 . \
       && cd -
-      
+
+## Changing the container behaviour on runtime through environment variables
+
+    // TODO
+
 ## License
 
 **MIT**
