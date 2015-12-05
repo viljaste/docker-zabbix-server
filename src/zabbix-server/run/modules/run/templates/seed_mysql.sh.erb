@@ -10,6 +10,8 @@ if [ -n "${OUTPUT}" ]; then
   exit
 fi
 
+mysql -h "<%= @mysql_host %>" -P "<%= @mysql_port %>" -u "<%= @mysql_username %>" -p"<%= @mysql_password %>" -e "CREATE DATABASE zabbix;"
+
 cat /usr/share/zabbix-server-mysql/schema.sql | mysql -h "<%= @mysql_host %>" -P "<%= @mysql_port %>" -u "<%= @mysql_username %>" -p"<%= @mysql_password %>" zabbix
 
 cat /usr/share/zabbix-server-mysql/images.sql | mysql -h "<%= @mysql_host %>" -P "<%= @mysql_port %>" -u "<%= @mysql_username %>" -p"<%= @mysql_password %>" zabbix
