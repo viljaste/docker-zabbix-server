@@ -24,6 +24,7 @@ This project is part of the [Dockerized Drupal](https://dockerizedrupal.com/) in
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -p 10051:10051 \
+      --link mysql:mysql \
       -d \
       dockerizedrupal/zabbix-server:0.1.5
 
